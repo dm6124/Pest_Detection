@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pest Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <div class="panels-container">
+            <div class="left-panel">
+                <div class="upload-container">
+                    <h2>Pest Detection</h2>
+                    <div id="uploadArea" class="upload-area">
+                        <div class="upload-icon">📁</div>
+                        <p class="upload-text">Drag & Drop your image here</p>
+                        <p class="upload-text">or</p>
+                        <label for="fileUpload" class="upload-button">Choose File</label>
+                        <input type="file" id="fileUpload" accept="image/*" style="display: none;">
+                    </div>
+                    <div id="previewContainer" class="preview-container" style="display: none;">
+                        <div class="image-preview">
+                            <img id="imagePreview" src="" alt="Image preview">
+                        </div>
+                        <div class="preview-details">
+                            <p id="fileName">No file selected</p>
+                            <button id="detectButton" class="detect-button" disabled>Detect Pests</button>
+                        </div>
+                        <button id="removeButton" class="remove-button">×</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div id="chatContainer" class="chat-container">
+                    <div class="chat-header">
+                        <h3>AI Pest Management Assistant</h3>
+                        <button id="toggleChat" class="toggle-chat">▼</button>
+                    </div>
+                    <div class="chat-body">
+                        <div id="chatLog" class="chat-log"></div>
+                        <div id="quickResponses" class="quick-responses"></div>
+                        <div class="chat-input-container">
+                            <input type="text" id="chatInput" class="chat-input" placeholder="Type your message...">
+                            <button id="chatSendButton" class="chat-send-button">➤</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="resultContainer" class="result-container" style="display: none;">
+            <h2>Detection Results</h2>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
